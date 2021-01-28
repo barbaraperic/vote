@@ -8,5 +8,5 @@ export default combineReducers({
   authedUser,
   users,
   loadingBar: loadingBarReducer,
-  polls
+  polls,
 })
