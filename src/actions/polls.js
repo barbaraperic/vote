@@ -11,7 +11,6 @@ const addPoll = (poll) => {
   }
 }
 
-
 export const receivePolls = (polls) => {
   return {
     type: RECEIVE_POLLS,
