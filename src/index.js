@@ -5,9 +5,11 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import reducers from './reducers/index'
+import middleware from './middleware/index'
 
 const store = createStore(
-  reducers
+  reducers,
+  middleware
 )
 
 ReactDOM.render(
