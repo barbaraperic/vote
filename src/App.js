@@ -4,6 +4,7 @@ import './App.css';
 import { handleInitialData } from './actions/shared'
 import Dashboard from './components/Dashboard'
 import Leaderboard from './components/Leaderboard'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = () => {
 
@@ -15,12 +16,14 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <div className='container'>
-      {loading === true 
-        ? null
-        : <Dashboard />
-      }
-    </div>
+    <Router>
+      <div className='container'>
+        {loading === true 
+          ? null
+          : <Dashboard />
+        }
+      </div>
+    </Router>
   );
 }
 
