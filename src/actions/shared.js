@@ -10,12 +10,12 @@ export const handleInitialData = () => {
   return (dispatch) => {
     dispatch(showLoading())
 
-    getInitialData()
-      .then(({ users, polls}) => {
+    return getInitialData()
+      .then(({ users, polls }) => {
         dispatch(hideLoading())
-        dispatch(setAuthedUser(AUTHED_USER))
         dispatch(receiveUsers(users))
         dispatch(receivePolls(polls))
+        dispatch(setAuthedUser(AUTHED_USER))
       })
   }
 }
