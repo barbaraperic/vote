@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.css';
 import { handleInitialData } from './actions/shared'
-import LoadingBar from 'react-redux-loading-bar'
-import Dashboard from './components/Dashboard'
+// import Dashboard from './components/Dashboard'
+import Leaderboard from './components/Leaderboard'
 
 const App = () => {
 
@@ -15,12 +15,12 @@ const App = () => {
     dispatch(handleInitialData())
   }, [dispatch])
 
-  console.log(state)
-
   return (
-    <div className="App">
-      <LoadingBar />
-      <Dashboard />
+    <div className='container'>
+      {loading === true 
+        ? null
+        : <Leaderboard />
+      }
     </div>
   );
 }
