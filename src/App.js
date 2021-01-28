@@ -3,8 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import './App.css';
 import { handleInitialData } from './actions/shared'
 import Dashboard from './components/Dashboard'
+import Leaderboard from './components/Leaderboard'
 import AddPoll from './components/AddPoll'
-import { BrowserRouter as Router } from 'react-router-dom'
+import Nav from './components/Nav'
+import Poll from './components/Poll'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const App = () => {
 
@@ -17,12 +20,27 @@ const App = () => {
 
   return (
     <Router>
-      <div className='container'>
-        {loading === true 
-          ? null
-          : <AddPoll />
-        }
-      </div>
+      <Switch>
+        <div className='container'>
+          <Nav />
+          {loading === true 
+            ? null
+            : <div>
+            <Route path='/' exact>
+              <Dashboard />
+            </Route>
+            <Route path="/leaderboard">
+              <Leaderboard />
+            </Route>
+            <Route path="/poll/:id">
+              <Poll />
+            </Route>
+            <Route path="/add">
+            <AddPoll />
+            </Route>
+            </div>}
+        </div>
+      </Switch>
     </Router>
   );
 }
