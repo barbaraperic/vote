@@ -7,7 +7,7 @@ import Leaderboard from './components/Leaderboard'
 import AddPoll from './components/AddPoll'
 import Nav from './components/Nav'
 import Poll from './components/Poll'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const App = () => {
 
@@ -20,27 +20,25 @@ const App = () => {
 
   return (
     <Router>
-      <Switch>
-        <div className='container'>
-          <Nav />
-          {loading === true 
-            ? null
-            : <div>
-            <Route path='/' exact>
-              <Dashboard />
-            </Route>
-            <Route path="/leaderboard">
-              <Leaderboard />
-            </Route>
-            <Route path="/poll/:id">
-              <Poll />
-            </Route>
-            <Route path="/add">
-            <AddPoll />
-            </Route>
-            </div>}
-        </div>
-      </Switch>
+      <div className='container'>
+        <Nav />
+        {loading === true 
+          ? null
+          : <div>
+          <Route path='/' exact>
+            <Dashboard />
+          </Route>
+          <Route path="/leaderboard">
+            <Leaderboard />
+          </Route>
+          <Route path="/polls/:id">
+            <Poll />
+          </Route>
+          <Route path="/add">
+          <AddPoll />
+          </Route>
+          </div>}
+      </div>
     </Router>
   );
 }
