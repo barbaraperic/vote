@@ -14,15 +14,15 @@ export const polls = (state = {}, action) => {
         [action.poll.id]: action.poll
       }
     case ADD_ANSWER :
-      const { authedUser, id, answer } = action
+      const { answer, id, authedUser } = action
       const poll = state[id]
       const votesKey = answer + 'Votes'
-      
+
       return {
         ...state,
-        [poll.id]: {
-          ...state,
-          votesKey: poll[votesKey].concat([authedUser])
+        [action.id]: {
+          ...poll,
+          [votesKey]: poll[votesKey].concat([authedUser]),
         }
       }
     default : return state

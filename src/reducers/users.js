@@ -26,7 +26,7 @@ export const users = (state = {}, action) => {
       return {
         ...state,
         [action.authedUser]: {
-          ...state,
+          ...user,
           answers: user.answers.concat([action.id])
         }
       }
